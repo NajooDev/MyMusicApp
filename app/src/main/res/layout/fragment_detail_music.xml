@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:weightSum="17">
+
+    <LinearLayout
+        android:id="@+id/sheetHandle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/music_list"
+        android:layout_weight="1" >
+
+        <ImageButton
+            android:id="@+id/btnCollapse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:src="@drawable/ic_expand_more"
+            android:background="@android:color/transparent"
+            android:contentDescription="Collapse"/>
+    </LinearLayout>
+
+    <!-- Placeholder vùng hiển thị phía trên (audio-only, bạn có thể đổi thành ImageView/PlayerView)-->
+    <ListView
+        android:id="@+id/music_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
+        android:choiceMode="singleChoice"
+        android:listSelector="@android:color/transparent"
+        android:layout_weight="14"/>
+
+    <!-- Chỉ PlayerControlView, dán sát chân màn hình -->
+    <androidx.media3.ui.PlayerControlView
+        android:id="@+id/player_control_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:show_timeout="0"
+        app:controller_layout_id="@layout/my_player_control_view"
+        android:layout_weight="2"/>
+
+</LinearLayout>
